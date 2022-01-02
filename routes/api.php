@@ -26,3 +26,9 @@ Route::group(['prefix'=> 'auth'],function(){
         return 'test';
     });
 });
+
+// Emploi Router
+Route::group(['prefix'=> 'jobs','middleware' => 'jwt.verify'],function(){
+   Route::post('/emploi/store','EmploiController@store');
+   Route::get("/emploi",'EmploiController@getAllEmploiByIdCompany');
+});
